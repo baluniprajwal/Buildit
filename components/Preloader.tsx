@@ -15,7 +15,7 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         onComplete: () => {
-           // Lift the curtain
+
             gsap.to(containerRef.current, {
                 yPercent: -100,
                 duration: 1.2,
@@ -25,15 +25,15 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
         }
       });
 
-      // 1. Progress Bar fills up
+
       tl.to(progressRef.current, {
         scaleX: 1,
         duration: 2,
         ease: "power2.inOut",
         transformOrigin: "left"
       });
-      
-      // 2. Text exit animation
+
+
       tl.to(textRef.current, {
           y: -100,
           opacity: 0,
@@ -43,7 +43,7 @@ const Preloader: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
 
     }, containerRef);
 
-    // Word cycler independent of timeline for that "glitch/rapid" feel
+
     const interval = setInterval(() => {
         setIndex(prev => {
             if (prev >= words.length - 1) return prev;

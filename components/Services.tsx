@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger);
 const services: ServiceItem[] = [
   {
     id: 1,
-    title: "Web Technologies",
+    title: " Web Development",
     category: "Development",
-    description: "Next-gen websites, WebGL experiences, and robust e-commerce platforms built for speed and conversion.",
+    description: "High-performance e-commerce platforms engineered for speed, scale, and conversions—paired with immersive portfolio and brand websites designed to showcase your story with clarity, impact, and modern visual excellence.",
   },
   {
     id: 2,
@@ -42,13 +42,13 @@ const Services: React.FC = () => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-        // Only enable complex scroll logic on larger screens
+
         const mm = gsap.matchMedia();
-        
+
         mm.add("(min-width: 768px)", () => {
             if (!leftColRef.current) return;
-            
-            // Pin the left column
+
+
             ScrollTrigger.create({
                 trigger: containerRef.current,
                 start: "top top",
@@ -58,7 +58,7 @@ const Services: React.FC = () => {
                 scrub: true,
             });
 
-            // Subtle parallax for the "Growth" text
+
             gsap.to(".growth-text", {
                 scrollTrigger: {
                     trigger: containerRef.current,
@@ -70,7 +70,7 @@ const Services: React.FC = () => {
                 letterSpacing: "0.1em"
             });
         });
-        
+
     }, containerRef);
 
     return () => ctx.revert();
@@ -78,8 +78,8 @@ const Services: React.FC = () => {
 
   return (
     <section ref={containerRef} className="relative w-full bg-[#0f0f0f] py-12 md:py-24 px-6 md:px-12 flex flex-col md:flex-row items-start overflow-hidden">
-      
-      {/* Left Column - Fixed via GSAP on desktop, static on mobile */}
+
+      {}
       <div ref={leftColRef} className="w-full md:w-1/3 flex flex-col justify-center min-h-[50vh] md:h-screen z-10 will-change-transform pb-12 md:pb-0">
         <h2 className="text-[#ff4d00] font-bold text-sm tracking-[0.2em] mb-4 uppercase flex items-center gap-2">
             <span className="w-8 h-[1px] bg-[#ff4d00]"></span>
@@ -93,14 +93,14 @@ const Services: React.FC = () => {
         </p>
       </div>
 
-      {/* Right Column - Scrolling Content */}
-      <div 
-        ref={rightColRef} 
+      {}
+      <div
+        ref={rightColRef}
         className="w-full md:w-2/3 flex flex-col gap-0 md:pl-24 py-0 md:py-32"
       >
         {services.map((service, index) => (
-          <div 
-            key={service.id} 
+          <div
+            key={service.id}
             className="service-card group border-t border-white/10 py-12 md:py-16 transition-colors duration-500 hover:bg-white/5 relative"
           >
             <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-6 relative z-10">
@@ -112,7 +112,7 @@ const Services: React.FC = () => {
                 </div>
                 <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-[#ff4d00] opacity-100 md:opacity-0 md:-translate-x-4 md:group-hover:opacity-100 md:group-hover:translate-x-0 transition-all duration-300 mt-4 md:mt-0" />
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pl-0 md:pl-10 relative z-10">
                 <p className="text-base md:text-lg text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                     {service.description}

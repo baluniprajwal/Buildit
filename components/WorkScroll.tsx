@@ -19,15 +19,15 @@ const WorkScroll: React.FC = () => {
   useEffect(() => {
     let ctx: gsap.Context;
 
-    // Wait for frames to settle
+
     const timer = setTimeout(() => {
         if (!triggerRef.current || !sectionRef.current) return;
 
         ctx = gsap.context(() => {
-          
+
           ScrollTrigger.defaults({ preventOverlaps: true });
-        
-          // Horizontal Scroll
+
+
           gsap.fromTo(
             sectionRef.current,
             { xPercent: 0 },
@@ -45,11 +45,11 @@ const WorkScroll: React.FC = () => {
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     if (sectionRef.current) {
-                        // Skew Effect based on velocity
+
                         const skew = self.getVelocity() / 300;
-                        gsap.to(sectionRef.current, { 
-                            skewX: skew, 
-                            duration: 0.1, 
+                        gsap.to(sectionRef.current, {
+                            skewX: skew,
+                            duration: 0.1,
                             overwrite: 'auto',
                             ease: "power3.out"
                         });
@@ -68,8 +68,8 @@ const WorkScroll: React.FC = () => {
   }, []);
 
   return (
-    <div 
-      ref={triggerRef} 
+    <div
+      ref={triggerRef}
       className="bg-[#E8E8E8] text-black overflow-hidden relative"
     >
       <div className="absolute top-0 left-0 w-full pt-24 px-6 md:px-12 z-10 pointer-events-none mix-blend-difference">
@@ -77,10 +77,10 @@ const WorkScroll: React.FC = () => {
           Selected <span className="text-[#ff4d00]">Works</span>
         </h2>
       </div>
-      
-      {/* Container width is larger than viewport for scrolling effect */}
-      <div 
-        ref={sectionRef} 
+
+      {}
+      <div
+        ref={sectionRef}
         className="h-screen flex will-change-transform"
         style={{ width: "500vw", maxWidth: "500vw" }}
       >
@@ -88,14 +88,14 @@ const WorkScroll: React.FC = () => {
           <div key={work.id} className="w-screen h-full flex items-center justify-center p-8 md:p-16 relative border-r border-gray-300/50">
              <div className="relative w-full md:w-[80%] h-[60vh] md:h-[70vh] group overflow-hidden bg-gray-200 shadow-2xl">
                 <div className="w-full h-full overflow-hidden">
-                    <img 
-                        src={work.img} 
-                        alt={work.name} 
+                    <img
+                        src={work.img}
+                        alt={work.name}
                         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 grayscale group-hover:grayscale-0"
                     />
                 </div>
-                
-                {/* Overlay Content */}
+
+                {}
                 <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out bg-[#000000]">
                     <span className="text-[#ff4d00] font-mono text-sm uppercase tracking-widest mb-2 block">{work.category}</span>
                     <div className="flex justify-between items-center">
@@ -104,8 +104,8 @@ const WorkScroll: React.FC = () => {
                     </div>
                 </div>
              </div>
-             
-             {/* Background Big Text behind image */}
+
+             {}
              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black text-black/5 pointer-events-none whitespace-nowrap z-[-1]">
                 {work.name}
              </div>

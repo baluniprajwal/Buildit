@@ -13,24 +13,24 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
   const ctaTextRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    // Only run magnetic effect if CTA is shown and refs exist
+
     if (!ctaSectionRef.current || !ctaTextRef.current || !showCta) return;
 
     const ctx = gsap.context(() => {
-        // Magnetic/Parallax Effect for "Let's Talk"
+
         const handleMouseMove = (e: MouseEvent) => {
             if (!ctaSectionRef.current || !ctaTextRef.current) return;
             const rect = ctaSectionRef.current.getBoundingClientRect();
-            
-            // Check if mouse is vertically within the section (plus a buffer)
+
+
             const isHovering = e.clientY >= rect.top - 100 && e.clientY <= rect.bottom + 100;
-            
+
             if (isHovering) {
                  const x = e.clientX - rect.left - rect.width / 2;
                  const y = e.clientY - rect.top - rect.height / 2;
 
                  gsap.to(ctaTextRef.current, {
-                    x: x * 0.1, // Subtle movement
+                    x: x * 0.1,
                     y: y * 0.1,
                     duration: 1,
                     ease: "power2.out"
@@ -68,16 +68,16 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
 
   return (
     <>
-      {/* CTA SECTION - BLACK BG */}
+      {}
       {showCta && (
         <section ref={ctaSectionRef} className="bg-black text-[#E8E8E8] py-32 px-6 md:px-12 relative overflow-hidden z-40">
-            {/* Background Grid - Subtle Light Lines */}
+            {}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
 
             <div className="container mx-auto flex flex-col items-center text-center relative z-10">
-                <h2 
+                <h2
                     ref={ctaTextRef}
-                    className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 hover:text-[#ff4d00] transition-colors cursor-pointer select-none will-change-transform" 
+                    className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 hover:text-[#ff4d00] transition-colors cursor-pointer select-none will-change-transform"
                     onClick={() => {
                         onNavigate('contact');
                         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -85,7 +85,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                 >
                 Let's Talk
                 </h2>
-                <button 
+                <button
                     onClick={() => {
                         onNavigate('contact');
                         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -99,16 +99,16 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
         </section>
       )}
 
-      {/* FOOTER SECTION - BLACK BG */}
+      {}
       <footer ref={footerRef} className="bg-black text-[#E8E8E8] pt-24 pb-12 px-6 md:px-12 border-t border-white/10 relative overflow-hidden z-40">
-        
-        {/* Background Grid - Subtle Light Lines */}
+
+        {}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
 
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 relative z-10">
-            {/* Column 1: Brand */}
+            {}
             <div className="md:col-span-1">
-                 <div 
+                 <div
                     className="text-2xl font-bold tracking-tighter uppercase cursor-pointer mb-6 inline-block hover:text-[#ff4d00] transition-colors"
                     onClick={() => {
                         onNavigate('home');
@@ -122,13 +122,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                   </p>
             </div>
 
-            {/* Column 2: Links */}
+            {}
             <div>
                 <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Sitemap</h4>
                 <ul className="space-y-4">
                     {['Home', 'Services', 'Work', 'About Us', 'Contact'].map((item) => (
                         <li key={item}>
-                            <button 
+                            <button
                                 onClick={() => {
                                     let view = 'home';
                                     if (item === 'Services') view = 'services';
@@ -147,7 +147,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                 </ul>
             </div>
 
-            {/* Column 3: Socials */}
+            {}
             <div>
                  <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Social</h4>
                  <ul className="space-y-4">
@@ -157,7 +157,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                  </ul>
             </div>
 
-            {/* Column 4: Info */}
+            {}
             <div>
                  <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Contact</h4>
                  <a href="mailto:hello@buildit.agency" className="text-lg font-bold text-[#E8E8E8] hover:text-[#ff4d00] transition-colors">hello@buildit.agency</a>

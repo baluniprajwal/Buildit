@@ -9,7 +9,7 @@ const CustomCursor: React.FC = () => {
     const ctx = gsap.context(() => {
       const moveCursor = (e: MouseEvent) => {
         if (!cursorRef.current || !followerRef.current) return;
-        
+
         gsap.to(cursorRef.current, {
           x: e.clientX,
           y: e.clientY,
@@ -25,8 +25,8 @@ const CustomCursor: React.FC = () => {
       };
 
       window.addEventListener('mousemove', moveCursor);
-      
-      // Hover effects
+
+
       const handleMouseEnter = () => {
           if (!followerRef.current) return;
           gsap.to(followerRef.current, { scale: 3, opacity: 0.3, duration: 0.3 });
@@ -40,15 +40,15 @@ const CustomCursor: React.FC = () => {
           el.addEventListener('mouseenter', handleMouseEnter);
           el.addEventListener('mouseleave', handleMouseLeave);
       });
-      
+
       return () => window.removeEventListener('mousemove', moveCursor);
 
     });
-    
+
     return () => ctx.revert();
   }, []);
 
-  // Only render on desktop
+
   if (typeof window !== 'undefined' && window.matchMedia("(pointer: coarse)").matches) {
       return null;
   }

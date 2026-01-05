@@ -20,9 +20,9 @@ const Contact: React.FC = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-    
+
     const ctx = gsap.context(() => {
-      // Animation Logic
+
       const tl = gsap.timeline({
         scrollTrigger: {
             trigger: sectionRef.current,
@@ -48,22 +48,22 @@ const Contact: React.FC = () => {
       }, "-=0.5");
 
     }, sectionRef);
-    
+
     return () => ctx.revert();
   }, []);
 
   return (
     <section ref={sectionRef} className="relative w-full min-h-screen bg-[#E8E8E8] text-black py-24 md:py-20 px-6 md:px-12 overflow-hidden border-t border-black/10 flex items-center">
-      {/* Background Grid - Subtle dark lines on Light Gray */}
+      {}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-        
-        {/* Left Column: Header & Info */}
+
+        {}
         <div className="flex flex-col justify-center h-full">
             <div>
                 <span className="contact-header-text block text-[#ff4d00] font-mono text-xs tracking-widest uppercase mb-4">
-                    // Start The Conversation
+
                 </span>
                 <h2 className="contact-header-text text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-6 text-black">
                     Let's <br/> Build <br/> The <span className="text-transparent stroke-black" style={{ WebkitTextStroke: '1px black', color: 'transparent' }}>Future</span>
@@ -106,10 +106,10 @@ const Contact: React.FC = () => {
             </div>
         </div>
 
-        {/* Right Column: The Form */}
+        {}
         <form ref={formRef} className="space-y-8 lg:pt-0">
-            
-            {/* Personal Details */}
+
+            {}
             <div className="space-y-6">
                 <div className="contact-field group">
                     <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-1 group-focus-within:text-black transition-colors">01 / Name</label>
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                 </div>
             </div>
 
-            {/* Project Type Selection */}
+            {}
             <div className="contact-field">
                 <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-4">04 / Project Type</label>
                 <div className="flex flex-wrap gap-2">
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                 </div>
             </div>
 
-            {/* Submit Button */}
+            {}
             <div className="contact-field pt-4">
                 <button type="submit" className="group relative w-full h-16 bg-black overflow-hidden border border-black transition-colors shadow-xl">
                     <div className="absolute inset-0 bg-[#ff4d00] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.19,1,0.22,1)]"></div>

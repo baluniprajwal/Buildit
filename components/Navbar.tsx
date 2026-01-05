@@ -6,13 +6,13 @@ interface NavbarProps {
   onNavigate: (view: string) => void;
 }
 
-// Scramble Text Component
+
 const ScrambleLink: React.FC<{ text: string; onClick: () => void }> = ({ text, onClick }) => {
     const [display, setDisplay] = useState(text);
     const chars = "!@#$%^&*()_+-=[]{}|;:,.<>?/1234567890";
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-    // Cleanup interval on unmount
+
     useEffect(() => {
         return () => {
             if (intervalRef.current) {
@@ -46,7 +46,7 @@ const ScrambleLink: React.FC<{ text: string; onClick: () => void }> = ({ text, o
                 }
             }
 
-            iteration += 1 / 2; // Speed of decoding
+            iteration += 1 / 2;
         }, 30);
     };
 
@@ -58,8 +58,8 @@ const ScrambleLink: React.FC<{ text: string; onClick: () => void }> = ({ text, o
     };
 
     return (
-        <span 
-            onMouseEnter={scramble} 
+        <span
+            onMouseEnter={scramble}
             onMouseLeave={reset}
             onClick={onClick}
             className="cursor-pointer block"
@@ -75,14 +75,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   useEffect(() => {
     if (!navRef.current) return;
-    
+
     const ctx = gsap.context(() => {
       gsap.from(navRef.current, {
         y: -100,
         opacity: 0,
         duration: 1,
         ease: 'power4.out',
-        delay: 2.5 // Delayed to wait for preloader
+        delay: 2.5
       });
     }, navRef);
     return () => ctx.revert();
@@ -104,16 +104,16 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       if (item === 'Work') view = 'work';
       if (item === 'About Us') view = 'about';
       if (item === 'Contact') view = 'contact';
-      
+
       onNavigate(view);
-      // Explicitly set instant behavior to override any smooth scrolling preferences
+
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
       setIsOpen(false);
   };
 
   return (
     <nav ref={navRef} className="fixed top-0 left-0 w-full z-50 px-6 py-6 mix-blend-difference text-white flex justify-between items-center">
-      <div 
+      <div
         className="text-2xl font-bold tracking-tighter uppercase cursor-pointer hover:text-[#ff4d00] transition-colors"
         onClick={() => handleNavClick('home')}
       >
@@ -124,9 +124,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         <ul className="flex space-x-12 text-sm font-bold uppercase tracking-widest">
           {['Services', 'Work', 'About Us', 'Contact'].map((item) => (
             <li key={item} className="relative group hover:text-[#ff4d00] transition-colors">
-              <ScrambleLink 
-                text={item} 
-                onClick={() => handleNavClick(item)} 
+              <ScrambleLink
+                text={item}
+                onClick={() => handleNavClick(item)}
               />
             </li>
           ))}
@@ -139,20 +139,20 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {}
       {isOpen && (
         <div className="fixed inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center space-y-8 z-40">
            {['Services', 'Work', 'About Us', 'Contact'].map((item) => (
-            <div 
-                key={item} 
-                className="text-5xl font-black uppercase hover:text-[#ff4d00] cursor-pointer" 
+            <div
+                key={item}
+                className="text-5xl font-black uppercase hover:text-[#ff4d00] cursor-pointer"
                 onClick={() => handleNavClick(item)}
             >
               {item}
             </div>
           ))}
 
-           {/* Mobile Socials */}
+           {}
            <div className="absolute bottom-12 flex gap-8">
                 <a href="#" className="text-gray-500 hover:text-[#ff4d00] transition-colors">
                     <Linkedin className="w-6 h-6" />

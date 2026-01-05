@@ -53,8 +53,8 @@ const AboutPage: React.FC = () => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
-        
-        // 1. Hero Entrance
+
+
         const tl = gsap.timeline();
         tl.from(".hero-char", {
             y: 100,
@@ -70,12 +70,12 @@ const AboutPage: React.FC = () => {
             duration: 0.8
         }, "-=0.5");
 
-        // 2. Manifesto Scroll Highlight
+
         if (manifestoRef.current) {
             const text = manifestoRef.current;
             const words = text.innerText.split(" ");
             text.innerHTML = words.map(word => `<span class="word opacity-20 transition-opacity duration-300">${word}</span>`).join(" ");
-            
+
             gsap.to(".word", {
                 opacity: 1,
                 stagger: 0.1,
@@ -88,7 +88,7 @@ const AboutPage: React.FC = () => {
             });
         }
 
-        // 3. Timeline Line Draw
+
         gsap.from(".timeline-line", {
             scaleY: 0,
             transformOrigin: "top",
@@ -101,7 +101,7 @@ const AboutPage: React.FC = () => {
             }
         });
 
-        // 4. Timeline Items Pop
+
         gsap.utils.toArray(".timeline-item").forEach((item: any) => {
             gsap.from(item, {
                 opacity: 0,
@@ -114,7 +114,7 @@ const AboutPage: React.FC = () => {
             });
         });
 
-        // 5. Gallery Parallax
+
         gsap.utils.toArray(".gallery-img").forEach((img: any, i) => {
             gsap.to(img, {
                 y: -50,
@@ -128,7 +128,7 @@ const AboutPage: React.FC = () => {
             });
         });
 
-        // 6. Protocol Rows Animation
+
         gsap.from(".protocol-row", {
             y: 50,
             opacity: 0,
@@ -141,7 +141,7 @@ const AboutPage: React.FC = () => {
             }
         });
 
-        // 7. Team Hover Reveal
+
         const teamItems = document.querySelectorAll('.team-item');
         const imgReveal = document.querySelector('.team-img-reveal') as HTMLDivElement;
         const imgElement = imgReveal?.querySelector('img');
@@ -154,7 +154,7 @@ const AboutPage: React.FC = () => {
                     gsap.to(imgReveal, { scale: 1, opacity: 1, duration: 0.4, ease: "power2.out" });
                 }
             });
-            
+
             item.addEventListener('mousemove', (e: any) => {
                 gsap.to(imgReveal, {
                     x: e.clientX,
@@ -176,21 +176,21 @@ const AboutPage: React.FC = () => {
 
   return (
     <div ref={containerRef} className="bg-[#050505] text-[#E8E8E8] min-h-screen w-full relative cursor-default overflow-hidden">
-        
-        {/* --- HERO SECTION --- */}
+
+        {}
         <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-            {/* Background Video */}
+            {}
             <div className="absolute inset-0 z-0 opacity-40">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] z-10"></div>
                 <div className="absolute inset-0 bg-black/40 z-10"></div>
-                <video 
-                    autoPlay muted loop playsInline 
+                <video
+                    autoPlay muted loop playsInline
                     className="w-full h-full object-cover"
-                    src="https://videos.pexels.com/video-files/852421/852421-hd_1920_1080_25fps.mp4" 
+                    src="https://videos.pexels.com/video-files/852421/852421-hd_1920_1080_25fps.mp4"
                 />
             </div>
-            
-            {/* Tech Overlay */}
+
+            {}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:3rem_3rem] pointer-events-none z-10"></div>
 
             <div className="relative z-20 text-center px-4">
@@ -214,7 +214,7 @@ const AboutPage: React.FC = () => {
             </div>
         </div>
 
-        {/* --- MANIFESTO --- */}
+        {}
         <section className="container mx-auto px-6 md:px-12 py-32 md:py-48 flex flex-col md:flex-row gap-12 md:gap-24 relative z-10">
             <div className="w-full md:w-1/4 pt-4">
                 <div className="sticky top-32">
@@ -230,7 +230,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {/* --- CORE VALUES --- */}
+        {}
         <section className="protocols-section w-full bg-[#0a0a0a] py-32 border-y border-[#222] relative z-10">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-24">
@@ -262,7 +262,7 @@ const AboutPage: React.FC = () => {
                                     <ChevronRight className="w-8 h-8 text-[#ff4d00]" />
                                 </div>
                             </div>
-                            {/* Background Hover Effect */}
+                            {}
                             <div className="absolute inset-0 bg-gradient-to-r from-[#ff4d00]/5 to-transparent transform -translate-x-full group-hover:translate-x-0 transition-transform duration-700 ease-out"></div>
                         </div>
                     ))}
@@ -271,7 +271,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {/* --- HISTORY TIMELINE --- */}
+        {}
         <section className="timeline-section container mx-auto px-6 md:px-12 py-32 md:py-48 flex flex-col md:flex-row gap-12">
             <div className="w-full md:w-1/3">
                  <h2 className="text-4xl md:text-6xl font-black uppercase sticky top-32">
@@ -279,15 +279,15 @@ const AboutPage: React.FC = () => {
                 </h2>
             </div>
             <div className="w-full md:w-2/3 relative pl-8 md:pl-16">
-                {/* Vertical Line */}
+                {}
                 <div className="timeline-line absolute left-0 top-0 bottom-0 w-[1px] bg-[#333]"></div>
 
                 <div className="space-y-24">
                     {timeline.map((item, i) => (
                         <div key={i} className="timeline-item relative">
-                            {/* Dot */}
+                            {}
                             <div className="absolute -left-[41px] md:-left-[73px] top-2 w-4 h-4 bg-[#050505] border-2 border-[#ff4d00] rounded-full z-10"></div>
-                            
+
                             <span className="font-mono text-[#ff4d00] text-sm tracking-widest mb-2 block">{item.year}</span>
                             <h3 className="text-3xl font-bold uppercase mb-4">{item.title}</h3>
                             <p className="text-gray-400 text-lg leading-relaxed max-w-md border-l-2 border-[#222] pl-6">
@@ -299,7 +299,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {/* --- CULTURE GALLERY --- */}
+        {}
         <section className="w-full py-24 bg-[#111] overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 mb-12 flex justify-between items-end">
                 <h2 className="text-3xl font-black uppercase">Our Culture</h2>
@@ -308,8 +308,8 @@ const AboutPage: React.FC = () => {
                     <span className="font-mono text-xs uppercase text-gray-500">Behind the Scenes</span>
                 </div>
             </div>
-            
-            {/* Masonry-ish Layout */}
+
+            {}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 px-4 h-[60vh] md:h-[80vh]">
                 <div className="md:col-span-2 md:row-span-2 relative overflow-hidden group">
                     <img src={galleryImages[0]} alt="Office" className="gallery-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
@@ -332,7 +332,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {/* --- TEAM ROSTER --- */}
+        {}
         <div className="container mx-auto px-6 md:px-12 py-32 relative">
             <div className="flex justify-between items-end mb-16 border-b border-[#333] pb-6">
                 <h3 className="text-4xl md:text-6xl font-black uppercase">The Team</h3>
@@ -341,8 +341,8 @@ const AboutPage: React.FC = () => {
 
             <div className="space-y-0">
                 {team.map((member) => (
-                    <div 
-                        key={member.id} 
+                    <div
+                        key={member.id}
                         data-img={member.img}
                         className="team-item group relative py-8 md:py-12 border-b border-[#222] flex items-center justify-between cursor-none hover:bg-white/5 transition-colors px-4"
                     >
@@ -359,7 +359,7 @@ const AboutPage: React.FC = () => {
                 ))}
             </div>
 
-            {/* Floating Image Reveal Element */}
+            {}
             <div className="team-img-reveal fixed top-0 left-0 w-[250px] h-[350px] pointer-events-none z-50 opacity-0 scale-50 -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-[#ff4d00] bg-black hidden md:block shadow-[0_0_30px_rgba(255,77,0,0.3)]">
                 <img src="" alt="Team Member" className="w-full h-full object-cover grayscale" />
                 <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[size:100%_4px] opacity-20 pointer-events-none"></div>

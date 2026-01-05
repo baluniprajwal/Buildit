@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-/*
-  GLOBAL SCROLL CONFIGURATION
-  Strict overflow management to prevent double scrollbars.
-*/
+
 html {
   width: 100%;
   overflow-x: hidden;
-  /* Removed scroll-behavior: smooth to ensure instant page transitions */
+
 }
 
 body {
@@ -30,7 +27,7 @@ body {
   position: relative;
 }
 
-/* Typography */
+
 h1,
 h2,
 h3,
@@ -40,7 +37,7 @@ h6 {
   font-family: "Syne", sans-serif;
 }
 
-/* Utilities */
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

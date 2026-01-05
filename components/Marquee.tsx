@@ -11,22 +11,22 @@ const Marquee: React.FC = () => {
   useEffect(() => {
     if (!textRef.current || !containerRef.current) return;
 
-    // Clone the text content multiple times to ensure we have enough width for the scroll distance
+
     const content = textRef.current.innerHTML;
     textRef.current.innerHTML = content + content + content + content;
 
     const ctx = gsap.context(() => {
-        // Scroll-driven animation
-        gsap.fromTo(textRef.current, 
-            { xPercent: 0 }, 
+
+        gsap.fromTo(textRef.current,
+            { xPercent: 0 },
             {
-                xPercent: -50, // Move halfway through the duplicated content
+                xPercent: -50,
                 ease: "none",
                 scrollTrigger: {
                     trigger: containerRef.current,
-                    start: "top bottom", // Start moving when marquee enters viewport
-                    end: "bottom top",   // Stop when it leaves
-                    scrub: 1             // Smooth scrubbing effect
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
                 }
             }
         );
