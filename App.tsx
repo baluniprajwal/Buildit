@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lenis from 'lenis';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import AboutGrid from './components/AboutGrid';
 import AboutPage from './components/AboutPage';
@@ -38,6 +39,27 @@ const App: React.FC = () => {
       ScrollTrigger.refresh();
     }
   }, [loading]);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: false
+    });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    let rafId = 0;
+    const raf = (time: number) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
 
   useLayoutEffect(() => {
