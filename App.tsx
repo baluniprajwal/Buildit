@@ -43,7 +43,6 @@ const App: React.FC = () => {
   useEffect(() => {
     const lenis = new Lenis({
       smoothWheel: true,
-      smoothTouch: false
     });
 
     lenis.on('scroll', ScrollTrigger.update);
