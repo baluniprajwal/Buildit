@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
-import { Instagram, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
+import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (view: string) => void;
@@ -152,15 +152,20 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                  <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Social</h4>
                  <ul className="space-y-4">
                     <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors uppercase font-bold text-sm"><Linkedin className="w-4 h-4" /> LinkedIn</a></li>
-                    <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors uppercase font-bold text-sm"><Instagram className="w-4 h-4" /> Instagram</a></li>
-                    <li><a href="#" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors uppercase font-bold text-sm"><Twitter className="w-4 h-4" /> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/builditservices/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors uppercase font-bold text-sm" target="_blank" rel="noopener noreferrer"><Instagram className="w-4 h-4" /> Instagram</a></li>
+                    <li>
+                        <a href="https://x.com/build_it51632" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors uppercase font-bold text-sm" target="_blank" rel="noopener noreferrer">
+                            <img src="/x-logo.svg" alt="X" className="w-4 h-4 brightness-0 invert" />
+                            x.com
+                        </a>
+                    </li>
                  </ul>
             </div>
 
             {}
             <div>
                  <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Contact</h4>
-                 <a href="mailto:hello@buildit.agency" className="text-lg font-bold text-[#E8E8E8] hover:text-[#ff4d00] transition-colors">hello@buildit.agency</a>
+                 <a href="mailto:thebuilditagency@gmail.com" className="text-lg font-bold text-[#E8E8E8] hover:text-[#ff4d00] transition-colors">thebuilditagency@gmail.com</a>
             </div>
         </div>
 

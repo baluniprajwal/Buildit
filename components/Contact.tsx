@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Instagram, Linkedin, Twitter, Dribbble } from 'lucide-react';
+import { ArrowRight, Instagram, Linkedin, Dribbble } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,15 +76,11 @@ const Contact: React.FC = () => {
             <div className="hidden lg:block space-y-6 contact-header-text mt-10">
                 <div className="border-l-2 border-black/20 pl-6 hover:border-[#ff4d00] transition-colors duration-300">
                     <p className="font-mono text-[10px] text-gray-400 uppercase mb-1">Email Us</p>
-                    <a href="mailto:hello@buildit.agency" className="text-xl font-bold text-black hover:text-[#ff4d00] transition-colors">hello@buildit.agency</a>
+                    <a href="mailto:thebuilditagency@gmail.com" className="text-xl font-bold text-black hover:text-[#ff4d00] transition-colors">thebuilditagency@gmail.com</a>
                 </div>
                 <div className="border-l-2 border-black/20 pl-6 hover:border-[#ff4d00] transition-colors duration-300">
                     <p className="font-mono text-[10px] text-gray-400 uppercase mb-1">Call Us</p>
-                    <a href="tel:+15550000000" className="text-xl font-bold text-black hover:text-[#ff4d00] transition-colors">+1 (555) 000-0000</a>
-                </div>
-                <div className="border-l-2 border-black/20 pl-6 hover:border-[#ff4d00] transition-colors duration-300">
-                    <p className="font-mono text-[10px] text-gray-400 uppercase mb-1">Visit HQ</p>
-                    <p className="text-lg font-bold text-black">Los Angeles • New York • London</p>
+                    <a href="tel:+919958718388" className="text-xl font-bold text-black hover:text-[#ff4d00] transition-colors">+91 99587 18388</a>
                 </div>
                 <div className="border-l-2 border-black/20 pl-6 hover:border-[#ff4d00] transition-colors duration-300">
                     <p className="font-mono text-[10px] text-gray-400 uppercase mb-2">Network</p>
@@ -93,13 +89,17 @@ const Contact: React.FC = () => {
                              <Linkedin className="w-4 h-4 text-black group-hover:text-[#ff4d00] transition-colors" />
                              <span className="font-bold uppercase text-xs group-hover:text-[#ff4d00] transition-colors">LinkedIn</span>
                         </a>
-                        <a href="#" className="group flex items-center gap-2">
+                        <a href="https://www.instagram.com/builditservices/" className="group flex items-center gap-2" target="_blank" rel="noopener noreferrer">
                              <Instagram className="w-4 h-4 text-black group-hover:text-[#ff4d00] transition-colors" />
                              <span className="font-bold uppercase text-xs group-hover:text-[#ff4d00] transition-colors">Instagram</span>
                         </a>
-                        <a href="#" className="group flex items-center gap-2">
-                             <Twitter className="w-4 h-4 text-black group-hover:text-[#ff4d00] transition-colors" />
-                             <span className="font-bold uppercase text-xs group-hover:text-[#ff4d00] transition-colors">X</span>
+                        <a href="https://x.com/build_it51632" className="group flex items-center gap-2" target="_blank" rel="noopener noreferrer">
+                             <img
+                                 src="/x-logo.svg"
+                                 alt="X"
+                                 className="w-4 h-4 group-hover:opacity-70 transition-opacity"
+                             />
+                             <span className="font-bold uppercase text-xs group-hover:text-[#ff4d00] transition-colors">x.com</span>
                         </a>
                     </div>
                 </div>
@@ -113,15 +113,15 @@ const Contact: React.FC = () => {
             <div className="space-y-6">
                 <div className="contact-field group">
                     <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-1 group-focus-within:text-black transition-colors">01 / Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
+                    <input type="text" placeholder="Prajwal Baluni" className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
                 </div>
                 <div className="contact-field group">
                     <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-1 group-focus-within:text-black transition-colors">02 / Email</label>
-                    <input type="email" placeholder="john@company.com" className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
+                    <input type="email" placeholder="prajwal@company.com" className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
                 </div>
                 <div className="contact-field group">
-                    <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-1 group-focus-within:text-black transition-colors">03 / Company</label>
-                    <input type="text" placeholder="Acme Inc." className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
+                    <label className="block font-mono text-[10px] text-[#ff4d00] uppercase tracking-widest mb-1 group-focus-within:text-black transition-colors">03 / Company / Business / Brand</label>
+                    <input type="text" placeholder="Himalayan Creations" className="w-full bg-transparent border-b border-black/20 py-2 text-xl md:text-2xl font-bold text-black focus:outline-none focus:border-black transition-colors placeholder-black/30" />
                 </div>
             </div>
 
@@ -163,3 +163,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
