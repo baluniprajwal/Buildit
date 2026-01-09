@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const DeviceShowcase: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const laptopRef = useRef<HTMLDivElement>(null);
-  const phoneRef = useRef<HTMLDivElement>(null);
+  const phoneRef = useRef<HTMLAnchorElement>(null);
   const glareRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const DeviceShowcase: React.FC = () => {
             });
 
             gsap.set(laptopRef.current, { rotationX: 10, scale: 0.9 });
-            gsap.set(phoneRef.current, { rotationY: -10, y: 150 });
+            gsap.set(phoneRef.current, { rotationX: 10, scale: 0.9 });
 
             tl.to(laptopRef.current, { rotationX: 0, y: -50, scale: 1, ease: "none" }, 0);
-            tl.to(phoneRef.current, { rotationY: 0, y: -200, ease: "none" }, 0);
+            tl.to(phoneRef.current, { rotationX: 0, y: -50, scale: 1, ease: "none" }, 0);
 
             if (glareRef.current) {
                 gsap.to(glareRef.current, {
@@ -60,10 +60,10 @@ const DeviceShowcase: React.FC = () => {
 
 
             gsap.set(laptopRef.current, { y: 50 });
-            gsap.set(phoneRef.current, { y: 100 });
+            gsap.set(phoneRef.current, { y: 50 });
 
             tl.to(laptopRef.current, { y: 0 }, 0);
-            tl.to(phoneRef.current, { y: -50 }, 0);
+            tl.to(phoneRef.current, { y: 0 }, 0);
         });
 
     }, containerRef);
@@ -72,7 +72,7 @@ const DeviceShowcase: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full min-h-[100vh] md:min-h-[120vh] bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center py-24">
+    <section ref={containerRef} className="w-full min-h-[100vh] md:min-h-[120vh] bg-[#050505] relative overflow-hidden flex flex-col items-center justify-center pt-20 pb-25 md:pb-50">
 
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,black,transparent)] pointer-events-none"></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#ff4d00] blur-[200px] opacity-10 rounded-full pointer-events-none"></div>
@@ -85,11 +85,11 @@ const DeviceShowcase: React.FC = () => {
                 Experience the collision of strategy and aesthetics.
             </p>
         </div>
-        <div className="relative w-full max-w-7xl h-[50vh] md:h-[80vh] flex items-center justify-center perspective-[2000px]">
+        <div className="relative w-full max-w-7xl h-[60vh] md:h-[75vh] flex items-center justify-center perspective-[2000px]">
 
             <div
                 ref={laptopRef}
-                className="absolute w-[90vw] md:w-[65vw] aspect-[16/10] bg-[#1a1a1a] rounded-[1rem] md:rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] z-10 transform-style-3d overflow-hidden top-1/4 md:top-auto"
+                className="absolute left-1/2 top-1/2 w-[92vw] md:w-[72vw] aspect-[16/10] -translate-x-1/2 -translate-y-1/2 bg-[#1a1a1a] rounded-[1rem] md:rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] z-10 transform-style-3d overflow-hidden"
             >
                 <div className="absolute inset-0 rounded-[1rem] md:rounded-[2rem] border-[1px] border-white/10 pointer-events-none z-50"></div>
                 <div className="absolute inset-[-2px] bg-gradient-to-b from-[#444] to-[#111] rounded-[1.1rem] md:rounded-[2.1rem] -z-10"></div>
@@ -108,9 +108,13 @@ const DeviceShowcase: React.FC = () => {
                 </div>
             </div>
 
-            <div
+            <a
                 ref={phoneRef}
-                className="absolute right-[2%] md:right-[15%] bottom-0 md:bottom-0 w-[35vw] md:w-[18vw] aspect-[9/19] bg-black rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-20 overflow-hidden transform-style-3d translate-y-12 md:translate-y-0"
+                href="https://www.instagram.com/builditservices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Buildit Instagram profile"
+                className="absolute right-[0%] top-1/2 w-[30vw] md:w-[18vw] aspect-[9/19] bg-black rounded-[2rem] md:rounded-[3rem] shadow-[0_20px_50px_rgba(0,0,0,0.8)] z-20 overflow-hidden transform-style-3d -translate-y-1/2"
             >
                  <div className="absolute inset-[-3px] md:inset-[-4px] bg-gradient-to-tr from-gray-400 via-gray-100 to-gray-500 rounded-[2.2rem] md:rounded-[3.3rem] -z-10"></div>
                  <div className="absolute inset-[-1px] bg-black rounded-[2rem] md:rounded-[3rem] -z-5"></div>
@@ -123,8 +127,9 @@ const DeviceShowcase: React.FC = () => {
                         className="w-full h-full object-cover"
                         src="/assets/BuilditEdit3.mp4"
                     />
+                    <div className="absolute top-0 left-0 right-0 h-[12%] bg-black z-10"></div>
                  </div>
-            </div>
+            </a>
         </div>
     </section>
   );

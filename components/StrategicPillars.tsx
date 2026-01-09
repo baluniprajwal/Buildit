@@ -41,7 +41,11 @@ const pillars = [
   }
 ];
 
-const StrategicPillars: React.FC = () => {
+type StrategicPillarsProps = {
+  onNavigate?: (view: string) => void;
+};
+
+const StrategicPillars: React.FC<StrategicPillarsProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   // Default to first item active on mount for better UX
   const [activeId, setActiveId] = useState<string | null>("smm"); 
@@ -106,16 +110,16 @@ const StrategicPillars: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="bg-[#0a0a0a] text-[#E8E8E8] w-full py-24 md:py-32 px-4 md:px-12 relative border-t border-[#222] min-h-[800px]">
+    <section ref={containerRef} className="bg-[#0a0a0a] text-[#E8E8E8] w-full py-16 md:py-20 px-4 md:px-12 relative border-t border-[#222] min-h-screen">
       
       {/* Header */}
-      <div className="container mx-auto mb-12 md:mb-24 flex flex-col md:flex-row justify-between items-end z-10 relative">
+      <div className="container mx-auto mb-8 md:mb-12 flex flex-col md:flex-row justify-between items-end z-10 relative">
         <div>
             <div className="flex items-center gap-2 text-[#ff4d00] font-mono text-sm tracking-widest uppercase mb-4">
                 <span className="w-2 h-2 bg-[#ff4d00] rounded-full animate-pulse"></span>
                 Our Services
             </div>
-            <h2 className="text-4xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter">
+            <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.95] tracking-tighter">
                 Simple & <br/> <span className="text-transparent stroke-white" style={{ WebkitTextStroke: '1px white' }}>Effective</span>
             </h2>
         </div>
@@ -130,22 +134,22 @@ const StrategicPillars: React.FC = () => {
          Desktop: Row, utilizing 'flex' grow/shrink properties.
          Mobile: Column, standard stacking with min-heights.
       */}
-      <div className="w-full flex flex-col md:flex-row gap-4 md:gap-2 h-auto md:h-[700px]">
+      <div className="w-full flex flex-col md:flex-row gap-4 md:gap-2 h-auto md:h-[75vh]">
         {pillars.map((pillar) => {
             const isActive = activeId === pillar.id;
 
             return (
                 <div 
                     key={pillar.id}
-                    className="pillar-card relative group overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer border border-[#222] hover:border-[#ff4d00] bg-[#111]"
+                    className="pillar-card relative group overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] cursor-pointer border border-[#222] hover:border-[#ff4d00] bg-[#111] md:aspect-square"
                     style={{
                         // Desktop: Grow if active (flex: 3), shrink if inactive (flex: 1)
                         // Mobile: flex: none, width 100%, height varies
                         flex: typeof window !== 'undefined' && window.innerWidth >= 768 
-                            ? (isActive ? 3 : 1) 
+                            ? (isActive ? 2 : 1) 
                             : 'none',
                         height: typeof window !== 'undefined' && window.innerWidth < 768 
-                            ? (isActive ? '500px' : '300px') // Explicit Mobile Heights
+                            ? (isActive ? '600px' : '320px') // Explicit Mobile Heights
                             : 'auto'
                     }}
                     onMouseEnter={() => handleMouseEnter(pillar.id)}
@@ -180,12 +184,12 @@ const StrategicPillars: React.FC = () => {
                                 {pillar.label}
                             </span>
                             
-                            <h3 className="text-3xl md:text-6xl font-black uppercase mb-4 leading-none text-white drop-shadow-xl">
+                            <h3 className="text-3xl md:text-4xl font-black uppercase mb-4 leading-[0.95] text-white drop-shadow-xl">
                                 {pillar.title}
                             </h3>
 
                             {/* Details: Visible if Active */}
-                            <div className={`overflow-hidden transition-all duration-500 ${isActive ? 'max-h-[500px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}`}>
+                            <div className={`overflow-hidden md:overflow-y-auto md:pr-2 transition-all duration-500 ${isActive ? 'max-h-[1200px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}`}>
                                 <p className="text-sm md:text-lg text-gray-200 mb-6 md:mb-8 leading-relaxed max-w-lg drop-shadow-md">
                                     {pillar.description}
                                 </p>
@@ -199,7 +203,11 @@ const StrategicPillars: React.FC = () => {
                                     ))}
                                 </div>
                                 
-                                <button className="px-5 py-2 md:px-6 md:py-3 bg-[#ff4d00] text-black text-sm md:text-base font-bold uppercase tracking-widest hover:bg-white transition-colors">
+                                <button
+                                    type="button"
+                                    onClick={() => onNavigate?.('services')}
+                                    className="px-5 py-2 md:px-6 md:py-3 bg-[#ff4d00] text-black text-sm md:text-base font-bold uppercase tracking-widest hover:bg-white transition-colors"
+                                >
                                     Learn More
                                 </button>
                             </div>

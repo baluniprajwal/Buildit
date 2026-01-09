@@ -91,7 +91,7 @@ const App: React.FC = () => {
           <AboutGrid onNavigate={setView} />
           <DeviceShowcase />
           <WorkScroll />
-          <StrategicPillars />
+          <StrategicPillars onNavigate={setView} />
           <Footer onNavigate={setView} />
         </div>
       )}
