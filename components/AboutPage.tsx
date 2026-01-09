@@ -14,27 +14,39 @@ const team = [
 ];
 
 const timeline = [
-    { year: "2019", title: "Inception", desc: "Founded with a vision to merge creativity and technology. Started in LA with a small, dedicated team." },
-    { year: "2021", title: "Global Reach", desc: "Opened London office. Expanded team to 20 creatives. First major enterprise contract signed." },
-    { year: "2023", title: "Innovation Merger", desc: "Acquired 'Apex Labs' to integrate AI and WebGL capabilities, broadening our service horizon." },
-    { year: "2024", title: "Industry Leader", desc: "Named 'Agency of the Year'. Delivered over 450 projects for global brands." }
+  {
+    year: "Nov 2025",
+    title: "Foundation",
+    desc: "Founded with a clear intent to merge engineering, culture, and growth. BuildIt launched as a focused digital studio, assembling a small but execution-driven team obsessed with performance and originality."
+  },
+  {
+    year: "Dec 2025",
+    title: "Early Traction",
+    desc: "Secured our first 5 active clients within weeks of launch. Delivered end-to-end solutions across web development, social media management, and content creation—establishing trust through results, not promises."
+  },
+  {
+    year: "2026",
+    title: "Expansion Phase",
+    desc: "Expanded service depth across e-commerce, social growth systems, and high-impact content production. Introduced performance analytics, scalable workflows, and modular design systems to support faster brand growth."
+  }
 ];
+
 
 const protocols = [
     {
         id: "01",
-        title: "Deep Insight",
-        desc: "We don't observe culture from the outside. We understand it. Our strategies are built on a deep, first-hand understanding of subcultures and emerging behaviors.",
+        title: "Cultural Intelligence",
+        desc: "We don’t observe culture from the outside we live in it. By deeply understanding subcultures, audience psychology, and platform behavior, we create strategies that feel timely, authentic, and impossible to ignore.",
     },
     {
         id: "02",
-        title: "Strategic Innovation",
-        desc: "We deploy creative tactics to outmaneuver the competition. While others stick to the status quo, we execute bold campaigns that capture attention.",
+        title: "Strategic Content",
+        desc: "Creativity without intent is noise. We design bold ideas backed by insight, data, and systems thinking executed with precision to outmaneuver the status quo and build brands that move people.",
     },
     {
         id: "03",
-        title: "Performance Design",
-        desc: "Design is nothing without function. We build custom solutions to ensure our creative assets perform at scale. Efficiency and impact are our goals.",
+        title: "Performance-Driven Execution",
+        desc: "Design must perform. From content and campaigns to websites and platforms, we build custom solutions engineered for scale, efficiency, and measurable impact constantly optimizing for growth and longevity.",
     }
 ];
 
@@ -214,7 +226,7 @@ const AboutPage: React.FC = () => {
             </div>
         </div>
 
-        {}
+        
         <section className="container mx-auto px-6 md:px-12 py-32 md:py-48 flex flex-col md:flex-row gap-12 md:gap-24 relative z-10">
             <div className="w-full md:w-1/4 pt-4">
                 <div className="sticky top-32">
@@ -225,12 +237,13 @@ const AboutPage: React.FC = () => {
             </div>
             <div className="w-full md:w-3/4">
                 <p ref={manifestoRef} className="text-3xl md:text-6xl font-bold uppercase leading-[1.2] tracking-tight text-[#E8E8E8]">
-                    We are the signal in the noise. We don't just build brands; we cultivate cultural movements that inspire, spread, and endure. In a world of templates, we create the custom.
+                    Original by design. Enduring by intent.
+                    We craft brands and digital experiences that break patterns and build relevance.            
                 </p>
             </div>
         </section>
 
-        {}
+        
         <section className="protocols-section w-full bg-[#0a0a0a] py-32 border-y border-[#222] relative z-10">
             <div className="container mx-auto px-6 md:px-12">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-24">
@@ -270,8 +283,7 @@ const AboutPage: React.FC = () => {
                 </div>
             </div>
         </section>
-
-        {}
+        
         <section className="timeline-section container mx-auto px-6 md:px-12 py-32 md:py-48 flex flex-col md:flex-row gap-12">
             <div className="w-full md:w-1/3">
                  <h2 className="text-4xl md:text-6xl font-black uppercase sticky top-32">
@@ -299,7 +311,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {}
+        
         <section className="w-full py-24 bg-[#111] overflow-hidden">
             <div className="container mx-auto px-6 md:px-12 mb-12 flex justify-between items-end">
                 <h2 className="text-3xl font-black uppercase">Our Culture</h2>
@@ -309,7 +321,7 @@ const AboutPage: React.FC = () => {
                 </div>
             </div>
 
-            {}
+            
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 px-4 h-[60vh] md:h-[80vh]">
                 <div className="md:col-span-2 md:row-span-2 relative overflow-hidden group">
                     <img src={galleryImages[0]} alt="Office" className="gallery-img w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
@@ -332,7 +344,7 @@ const AboutPage: React.FC = () => {
             </div>
         </section>
 
-        {}
+        {/*
         <div className="container mx-auto px-6 md:px-12 py-32 relative">
             <div className="flex justify-between items-end mb-16 border-b border-[#333] pb-6">
                 <h3 className="text-4xl md:text-6xl font-black uppercase">The Team</h3>
@@ -358,15 +370,13 @@ const AboutPage: React.FC = () => {
                     </div>
                 ))}
             </div>
-
-            {}
             <div className="team-img-reveal fixed top-0 left-0 w-[250px] h-[350px] pointer-events-none z-50 opacity-0 scale-50 -translate-x-1/2 -translate-y-1/2 overflow-hidden border border-[#ff4d00] bg-black hidden md:block shadow-[0_0_30px_rgba(255,77,0,0.3)]">
                 <img src="" alt="Team Member" className="w-full h-full object-cover grayscale" />
                 <div className="absolute inset-0 bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[size:100%_4px] opacity-20 pointer-events-none"></div>
                 <div className="absolute bottom-2 left-2 font-mono text-[10px] text-[#ff4d00] bg-black px-1">TEAM</div>
             </div>
         </div>
-
+            */}
     </div>
   );
 };

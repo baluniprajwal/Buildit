@@ -102,7 +102,7 @@ const DeviceShowcase: React.FC = () => {
                     <video
                         autoPlay muted loop playsInline
                         className="w-full h-full object-cover"
-                        src="/assets/BuilditEdit2.mp4"
+                        src="/assets/main_2.mp4"
                     />
                     <div ref={glareRef} className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full pointer-events-none z-50 skew-x-12 hidden md:block"></div>
                 </div>
