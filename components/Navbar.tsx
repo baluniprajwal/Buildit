@@ -102,7 +102,15 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
         {/* SOCIALS */}
         <div className="absolute bottom-10 flex gap-8 items-center">
-          <Instagram />
+          <a
+            href="https://www.instagram.com/builditservices/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram profile"
+            className="hover:text-[#ff4d00] transition-colors"
+          >
+            <Instagram />
+          </a>
           <Linkedin />
           <a
             href="https://x.com/build_it51632"
