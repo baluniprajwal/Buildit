@@ -82,7 +82,7 @@ const App: React.FC = () => {
 
       {view === 'home' && (
         <div key="home-view">
-          <Hero />
+          <Hero onNavigate={setView} />
           <Services />
           <ClientLogos />
           <VideoManifesto />

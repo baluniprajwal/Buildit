@@ -5,7 +5,11 @@ import { ArrowDownRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero: React.FC = () => {
+type HeroProps = {
+  onNavigate?: (view: string) => void;
+};
+
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -41,9 +45,13 @@ const Hero: React.FC = () => {
         </div>
         <div className="mt-8 md:mt-0 pointer-events-auto">
           {}
-          <button className={`group relative px-8 py-4 bg-transparent border overflow-hidden transition-colors ${isOverlay ? 'border-[#E8E8E8] hover:border-black' : 'border-black hover:border-[#ff4d00]'}`}>
+          <button
+            type="button"
+            onClick={() => onNavigate?.('contact')}
+            className={`group relative px-8 py-4 bg-transparent border overflow-hidden transition-colors ${isOverlay ? 'border-[#E8E8E8] hover:border-black' : 'border-black hover:border-[#ff4d00]'}`}
+          >
             <span className={`relative z-10 font-bold uppercase tracking-wider transition-colors duration-300 ${isOverlay ? 'text-[#E8E8E8] group-hover:text-[#E8E8E8]' : 'text-black group-hover:text-[#E8E8E8]'}`}>
-              Start Project
+              Contact US
             </span>
             <div className={`absolute inset-0 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out ${isOverlay ? 'bg-black' : 'bg-[#ff4d00]'}`}></div>
           </button>
