@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
     <>
       {}
       {showCta && (
-        <section ref={ctaSectionRef} className="bg-black text-[#E8E8E8] py-32 px-6 md:px-12 relative overflow-hidden z-40">
+        <section ref={ctaSectionRef} className="bg-black text-[#E8E8E8] py-32 px-6 md:px-12 relative overflow-hidden z-10">
             {}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
 
@@ -100,7 +100,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
       )}
 
       {}
-      <footer ref={footerRef} className="bg-black text-[#E8E8E8] pt-24 pb-12 px-6 md:px-12 border-t border-white/10 relative overflow-hidden z-40">
+      <footer ref={footerRef} className="bg-black text-[#E8E8E8] pt-24 pb-12 px-6 md:px-12 border-t border-white/10 relative overflow-hidden z-10">
 
         {}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>

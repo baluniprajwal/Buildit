@@ -74,7 +74,7 @@ const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
     <section ref={containerRef} className="w-full bg-[#0a0a0a] py-32 px-6 md:px-12 relative z-30 overflow-hidden">
         <div className="container mx-auto">
             <div className="mb-16 relative flex flex-col md:flex-row justify-between items-end">
-                <h2 ref={titleRef} className="text-4xl md:text-6xl font-black uppercase text-[#E8E8E8] leading-[0.9] will-change-transform">
+                <h2 ref={titleRef} className="text-3xl md:text-6xl font-black uppercase text-[#E8E8E8] leading-[0.9] will-change-transform">
                     The <span className="text-[#ff4d00]">Agency</span> <br/> Ecosystem
                 </h2>
                 <button

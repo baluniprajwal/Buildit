@@ -72,9 +72,9 @@ const WorkScroll: React.FC = () => {
       ref={triggerRef}
       className="bg-[#E8E8E8] text-black overflow-hidden relative"
     >
-      <div className="absolute top-0 left-0 w-full pt-24 px-6 md:px-12 z-10 pointer-events-none mix-blend-difference">
-        <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-[#E8E8E8]">
-          Selected <span className="text-[#ff4d00]">Works</span>
+      <div className="absolute top-0 left-0 w-full pt-40 px-6 md:px-12 md:pt-28 z-10 pointer-events-none mix-blend-difference">
+        <h2 className="text-3xl md:text-7xl font-black uppercase tracking-tighter text-[#E8E8E8]">
+          Selected <br /><span className="text-[#ff4d00]">Works</span>
         </h2>
       </div>
 

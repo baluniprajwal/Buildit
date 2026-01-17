@@ -237,16 +237,14 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
              {}
              {}
              <div className="overflow-hidden py-6 md:py-4 mb-[-4vw] md:mb-[-2vw] relative z-20 mix-blend-difference pointer-events-none w-full flex justify-center md:justify-start">
-                <h1 className="hero-title-1 hero-word text-[14vw] md:text-[13vw] leading-[0.85] font-black uppercase text-transparent tracking-tighter text-center md:text-left"
+                <h1 className="hero-title-1 hero-word text-[9vw] md:text-[9vw] leading-[0.85] font-black uppercase text-transparent tracking-tighter text-center md:text-left"
                     style={{ WebkitTextStroke: '1px #666' }}>
                     DIGITAL
                 </h1>
              </div>
 
-             {}
-             {}
              <div className="overflow-hidden py-6 md:py-4 pl-0 md:pl-[8vw] relative z-10 w-full flex justify-center md:justify-start">
-                 <h1 className="hero-title-2 hero-word text-[14vw] md:text-[13vw] leading-[0.85] font-black uppercase text-[#E8E8E8] tracking-tighter text-center md:text-left">
+                 <h1 className="hero-title-2 hero-word text-[9vw] md:text-[9vw] leading-[0.85] font-black uppercase text-[#E8E8E8] tracking-tighter text-center md:text-left">
                     EXPERTISE
                  </h1>
              </div>

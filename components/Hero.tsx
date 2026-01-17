@@ -71,11 +71,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
 
       mm.add("(max-width: 767px)", () => {
-          gsap.to(maskRef.current, {
-              clipPath: "circle(150% at 50% 50%)",
-              duration: 2,
-              ease: "power2.out",
-              delay: 1.5
+          gsap.set(maskRef.current, {
+              autoAlpha: 0,
+              pointerEvents: "none"
           });
       });
 

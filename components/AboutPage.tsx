@@ -51,10 +51,10 @@ const protocols = [
 ];
 
 const galleryImages = [
-    "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "https://images.pexels.com/photos/260024/pexels-photo-260024.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+    "/aboutus/aboutUs2.jpeg",
+    "/aboutus/aboutUs4.jpeg",
+    "/aboutus/aboutUs5.jpeg",
+    "/aboutus/aboutUs3.jpeg"
 ];
 
 const AboutPage: React.FC = () => {
@@ -246,9 +246,9 @@ const AboutPage: React.FC = () => {
         
         <section className="protocols-section w-full bg-[#0a0a0a] py-32 border-y border-[#222] relative z-10">
             <div className="container mx-auto px-6 md:px-12">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 text-left">
                     <div>
-                        <h2 className="text-4xl md:text-6xl font-black uppercase leading-none mb-4">
+                        <h2 className="text-3xl md:text-6xl font-black uppercase leading-none mb-4">
                             Core <br/> <span className="text-[#ff4d00]">Values</span>
                         </h2>
                         <p className="font-mono text-gray-500 text-sm">/// OUR PHILOSOPHY</p>

@@ -30,12 +30,12 @@ const VideoManifesto: React.FC = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="w-full h-screen relative overflow-hidden bg-black text-[#E8E8E8] flex flex-col justify-center items-center">
+    <section ref={containerRef} className="w-full min-h-[40vh] md:h-screen relative overflow-hidden bg-black text-[#E8E8E8] flex flex-col items-center justify-start pt-24 md:pt-0 md:justify-center px-4 md:px-0">
 
         <div className="absolute inset-0 opacity-40"></div>
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
-        <div className="relative z-10 text-center px-6">
-            <div className="inline-flex items-center gap-2 border border-[#ff4d00] px-4 py-1 rounded-full mb-8 bg-black/50 backdrop-blur-sm">
+        <div className="relative z-10 text-center px-4 md:px-6">
+            <div className="inline-flex items-center gap-2 border border-[#ff4d00] px-4 py-0 rounded-full mb-8 bg-black/50 backdrop-blur-sm">
                 <div className="w-2 h-2 bg-[#ff4d00] animate-pulse rounded-full"></div>
                 <span className="text-xs font-mono uppercase tracking-widest text-[#ff4d00]">Global Showreel 2024</span>
             </div>

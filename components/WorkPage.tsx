@@ -159,7 +159,7 @@ const WorkPage: React.FC = () => {
                         <div className="category-header w-full md:w-1/3 flex flex-col justify-start md:h-screen pt-0 md:pt-12 z-10 sticky top-0">
                              <div className="mb-8">
                                 <span className="text-[#ff4d00] font-mono text-sm tracking-widest uppercase mb-2 block">0{index + 1} / Category</span>
-                                <h2 className={`font-black uppercase tracking-tighter leading-none mb-6 break-words ${cat.id === 'content' ? 'text-4xl md:text-5xl lg:text-6xl' : 'text-5xl md:text-6xl lg:text-7xl'}`}>
+                                <h2 className={`font-black uppercase tracking-tighter leading-none mb-6 break-words ${cat.id === 'content' ? 'text-4xl md:text-4xl lg:text-5xl' : 'text-5xl md:text-5xl lg:text-6xl'}`}>
                                     {cat.title}
                                 </h2>
                                 <p className="text-gray-400 text-lg border-l border-[#ff4d00] pl-6 max-w-xs">
