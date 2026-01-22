@@ -131,8 +131,8 @@ const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
                 <div className="bento-item bg-[#111] border border-[#222] p-8 flex flex-col justify-between group hover:bg-[#ff4d00] hover:text-black transition-colors duration-500 min-h-[250px]">
                     <Trophy className="w-8 h-8 text-[#555] group-hover:text-black transition-colors" />
                     <div>
-                        <h4 className="text-4xl font-bold mb-1">24</h4>
-                        <p className="text-xs font-mono opacity-60 uppercase">Industry Awards</p>
+                        <h4 className="text-4xl font-bold mb-1">10+</h4>
+                        <p className="text-xs font-mono opacity-60 uppercase">Projects in Motion</p>
                     </div>
                 </div>
 
