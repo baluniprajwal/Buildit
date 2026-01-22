@@ -351,7 +351,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                               className={`group w-max flex items-center gap-4 text-sm md:text-base font-bold uppercase tracking-widest hover:opacity-70 transition-opacity ${section.accent}`}
                             >
                                 <span className="relative">
-                                    Start Project
+                                    Contact Us
                                     <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-current scale-x-100 group-hover:scale-x-0 transition-transform origin-right duration-300"></span>
                                     <span className="absolute left-0 -bottom-1 w-full h-[2px] bg-current scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300 delay-75"></span>
                                 </span>

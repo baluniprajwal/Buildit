@@ -15,7 +15,6 @@ const categories = [
         id: 1,
         client: "SetuStore",
         service: "Social Media Management + Content Creation",
-        year: "2025",
         img: "/work/setustore.jpeg",
         link: "https://www.instagram.com/setustore_/"
       },
@@ -23,17 +22,15 @@ const categories = [
         id: 2,
         client: "Sabor Fashhion",
         service: "Social Media Management",
-        year: "2025",
         img: "/work/saborFashion.jpeg",
         link: "https://www.instagram.com/saborfashhion/"
       },
       {
         id: 3,
-        client: "Uruj",
+        client: "Uruj Collection",
         service: "Social Media Management",
-        year: "2026",
         img: "/work/uruj.jpeg",
-        link: "https://instagram.com/uruj"
+        link: "https://www.instagram.com/urujcollection/"
       },
     ]
   },
@@ -45,16 +42,15 @@ const categories = [
       {
         id: 4,
         client: "Uphoria",
-        service: "Event Website",
+        service: "Event Website Design & Development",
         year: "2026",
-        img: "",
-        link: "https://uphoria.com"
+        img: "/work/uphoriaWork.jpeg",
+        link: "https://uphoria.co.in"
       },
       {
         id: 5,
         client: "Velour",
-        service: "Clothing Website",
-        year: "2023",
+        service: "Fashion E-Commerce Website",
         img: "/work/velour.png",
         link: "https://velour-rho.vercel.app/"
       },
@@ -62,15 +58,13 @@ const categories = [
         id: 6,
         client: "Thriftify India",
         service: "Ecommerce Store",
-        year: "2025",
         img: "/work/thriftify.png",
         link: "https://thriftify-india.vercel.app/"
       },
       {
         id: 7,
         client: "Millionwires",
-        service: "Portfolio Website",
-        year: "2025",
+        service: "Portfolio Website Design & Development",
         img: "/work/millionwires.png",
         link: "https://millionwires.pages.dev/"
       },
@@ -85,7 +79,6 @@ const categories = [
         id: 7,
         client: "LUMEN OPTICS",
         service: "Brand Film",
-        year: "2024",
         img: "https://picsum.photos/1600/900?random=16",
         link: "https://vimeo.com"
       },
@@ -93,7 +86,6 @@ const categories = [
         id: 8,
         client: "SONIC WAVE",
         service: "3D Motion",
-        year: "2023",
         img: "https://picsum.photos/1600/900?random=17",
         link: "https://behance.net"
       },
@@ -101,7 +93,6 @@ const categories = [
         id: 9,
         client: "URBAN DRIFT",
         service: "Photography",
-        year: "2022",
         img: "https://picsum.photos/1600/900?random=18",
         link: "https://instagram.com"
       },
@@ -126,19 +117,25 @@ const WorkPage: React.FC = () => {
         });
 
         const sections = document.querySelectorAll('.category-section');
+        const mm = gsap.matchMedia();
+
+        mm.add("(min-width: 768px)", () => {
+          sections.forEach((section) => {
+            const q = gsap.utils.selector(section);
+
+            ScrollTrigger.create({
+              trigger: section,
+              start: "top top",
+              end: "bottom bottom",
+              pin: q(".category-header"),
+              pinSpacing: false,
+              scrub: true
+            });
+          });
+        });
 
         sections.forEach((section) => {
           const q = gsap.utils.selector(section);
-
-          ScrollTrigger.create({
-            trigger: section,
-            start: "top top",
-            end: "bottom bottom",
-            pin: q(".category-header"),
-            pinSpacing: false,
-            scrub: true
-          });
-
           const projects = q(".project-card");
 
           projects.forEach((card) => {
@@ -161,7 +158,7 @@ const WorkPage: React.FC = () => {
             if (img) {
               gsap.fromTo(
                 img,
-                { scale: 1.2, yPercent: -10 },
+                { scale: 1.1, yPercent: -10 },
                 {
                   scale: 1,
                   yPercent: 10,
@@ -207,13 +204,13 @@ const WorkPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-32">
+      <div className="flex flex-col gap-20 md:gap-32">
         {categories.map((cat, index) => (
           <section key={cat.id} className="category-section relative min-h-screen">
-            <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-24">
-              <div className="category-header w-full md:w-1/3 md:h-screen sticky top-0 pt-12">
+            <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-10 md:gap-24">
+              <div className="category-header w-full md:w-1/3 md:h-screen md:sticky md:top-0 pt-6 md:pt-12 mb-6 md:mb-0">
                 <span className="text-[#ff4d00] font-mono text-sm uppercase">0{index + 1} / Category</span>
-                <h2 className="font-black uppercase tracking-tighter text-5xl lg:text-6xl mt-4">
+                <h2 className="font-black uppercase tracking-tighter text-4xl lg:text-5xl mt-4">
                   {cat.title}
                 </h2>
                 <p className="text-gray-400 text-lg border-l border-[#ff4d00] pl-6 mt-6 max-w-xs">
@@ -237,11 +234,6 @@ const WorkPage: React.FC = () => {
                         alt={project.client}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-6 right-6 bg-black/80 px-4 py-2 border border-[#333]">
-                        <span className="text-xs font-mono text-[#ff4d00]">
-                          {project.year}
-                        </span>
-                      </div>
                     </div>
 
                     <div className="flex justify-between items-end border-b border-[#333] pb-6 group-hover:border-[#ff4d00] transition">
