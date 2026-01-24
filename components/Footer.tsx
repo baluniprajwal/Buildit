@@ -1,9 +1,10 @@
 import React, { useRef, useEffect } from 'react';
+import type { View } from '../App';
 import gsap from 'gsap';
 import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
-  onNavigate: (view: string) => void;
+  onNavigate: (view: View) => void;
   showCta?: boolean;
 }
 

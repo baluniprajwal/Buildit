@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import type { View } from '../App';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDownRight } from 'lucide-react';
@@ -6,7 +7,7 @@ import { ArrowDownRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 type HeroProps = {
-  onNavigate?: (view: string) => void;
+  onNavigate?: (view: View) => void;
 };
 
 const Hero: React.FC<HeroProps> = ({ onNavigate }) => {

@@ -58,7 +58,15 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({
     <span
       onMouseEnter={startScramble}
       onMouseLeave={stopScramble}
-      onClick={onClick}
+      onPointerUp={() => onClick?.()}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick?.();
+        }
+      }}
+      role="button"
+      tabIndex={0}
       className={`inline-block cursor-pointer ${className}`}
     >
       {display}

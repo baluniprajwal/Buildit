@@ -2,9 +2,10 @@ import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { Menu, X, Instagram, Linkedin } from "lucide-react";
 import ScrambleText from "./ScrambleText";
+import type { View } from "../App";
 
 interface NavbarProps {
-  onNavigate: (view: string) => void;
+  onNavigate: (view: View) => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
@@ -51,13 +52,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     });
   }, [isOpen]);
 
-  const handleNavClick = (view: string) => {
+  const handleNavClick = (view: View) => {
     onNavigate(view);
     window.scrollTo({ top: 0, behavior: "instant" });
     setIsOpen(false);
   };
 
-  const navItems = ["services", "work", "about", "contact"];
+  const navItems: View[] = ["services", "work", "about", "contact"];
 
   return (
     <>

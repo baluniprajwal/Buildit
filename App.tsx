@@ -23,9 +23,11 @@ import WorkScroll from './components/WorkScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
+export type View = 'home' | 'services' | 'work' | 'about' | 'contact';
+
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState<'home' | 'services' | 'work' | 'about' | 'contact'>('home');
+  const [view, setView] = useState<View>('home');
 
   /* --------------------------------------------
      PRELOADER SCROLL CONTROL (BODY ONLY)
@@ -40,20 +42,15 @@ const App: React.FC = () => {
     }
   }, [loading]);
 
-  /* --------------------------------------------
-     LENIS – DESKTOP ONLY
-  --------------------------------------------- */
   useEffect(() => {
     const isTouchDevice =
       'ontouchstart' in window ||
       navigator.maxTouchPoints > 0;
 
-    // ❌ NO Lenis on Android / iOS
     if (isTouchDevice) return;
 
     const lenis = new Lenis({
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -71,9 +68,7 @@ const App: React.FC = () => {
     };
   }, []);
 
-  /* --------------------------------------------
-     VIEW CHANGE RESET
-  --------------------------------------------- */
+
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
 
