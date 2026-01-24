@@ -73,7 +73,7 @@ const Contact: React.FC = () => {
                 </p>
             </div>
 
-            <div className="hidden lg:block space-y-6 contact-header-text mt-10">
+            <div className="block lg:block space-y-6 contact-header-text mt-10">
                 <div className="border-l-2 border-black/20 pl-6 hover:border-[#ff4d00] transition-colors duration-300">
                     <p className="font-mono text-[10px] text-gray-400 uppercase mb-1">Email Us</p>
                     <a href="mailto:thebuilditagency@gmail.com" className="text-xl font-bold text-black hover:text-[#ff4d00] transition-colors">thebuilditagency@gmail.com</a>

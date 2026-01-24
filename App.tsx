@@ -41,6 +41,11 @@ const App: React.FC = () => {
   }, [loading]);
 
   useEffect(() => {
+    const isCoarsePointer = typeof window !== 'undefined'
+      ? window.matchMedia('(pointer: coarse)').matches
+      : false;
+    if (isCoarsePointer) return;
+
     const lenis = new Lenis({
       smoothWheel: true,
     });
