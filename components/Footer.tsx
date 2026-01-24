@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import type { View } from '../App';
+import type { View } from '../types/view'
 import gsap from 'gsap';
 import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
 

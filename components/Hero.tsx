@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import type { View } from '../App';
+import type { View } from '../types/view'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDownRight } from 'lucide-react';

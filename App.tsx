@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import type { View } from './types/view';
 
 import AboutGrid from './components/AboutGrid';
 import AboutPage from './components/AboutPage';
@@ -23,7 +24,6 @@ import WorkScroll from './components/WorkScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export type View = 'home' | 'services' | 'work' | 'about' | 'contact';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
