@@ -30,10 +30,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (loading) {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     } else {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
 
       ScrollTrigger.refresh();
@@ -44,7 +46,8 @@ const App: React.FC = () => {
     const isCoarsePointer = typeof window !== 'undefined'
       ? window.matchMedia('(pointer: coarse)').matches
       : false;
-    if (isCoarsePointer) return;
+    const hasTouchPoints = typeof navigator !== 'undefined' && navigator.maxTouchPoints > 0;
+    if (isCoarsePointer || hasTouchPoints) return;
 
     const lenis = new Lenis({
       smoothWheel: true,
@@ -69,6 +72,8 @@ const App: React.FC = () => {
   useLayoutEffect(() => {
 
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
 
 
     const timer = setTimeout(() => {
