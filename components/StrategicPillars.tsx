@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import type { View } from '../App';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Share2, Monitor, Camera, ArrowUpRight, Zap } from 'lucide-react';
@@ -43,7 +42,7 @@ const pillars = [
 ];
 
 type StrategicPillarsProps = {
-  onNavigate?: (view: View) => void;
+  onNavigate?: (view: string) => void;
 };
 
 const StrategicPillars: React.FC<StrategicPillarsProps> = ({ onNavigate }) => {

@@ -1,16 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import type { View } from '../types/view'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDownRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type HeroProps = {
-  onNavigate?: (view: View) => void;
-};
-
-const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -48,7 +43,6 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           {}
           <button
             type="button"
-            onClick={() => onNavigate?.('contact')}
             className={`group relative px-8 py-4 bg-transparent border overflow-hidden transition-colors ${isOverlay ? 'border-[#E8E8E8] hover:border-black' : 'border-black hover:border-[#ff4d00]'}`}
           >
             <span className={`relative z-10 font-bold uppercase tracking-wider transition-colors duration-300 ${isOverlay ? 'text-[#E8E8E8] group-hover:text-[#E8E8E8]' : 'text-black group-hover:text-[#E8E8E8]'}`}>

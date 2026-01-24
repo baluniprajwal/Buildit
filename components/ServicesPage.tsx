@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import type { View } from '../types/view'
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Monitor, Share2, Camera, ArrowUpRight, ArrowDown } from 'lucide-react';
@@ -7,7 +6,7 @@ import { Monitor, Share2, Camera, ArrowUpRight, ArrowDown } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 interface ServicesPageProps {
-  onNavigate: (view: View) => void;
+  onNavigate: (view: string) => void;
 }
 
 const serviceSections = [

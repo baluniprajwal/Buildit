@@ -58,8 +58,7 @@ const ScrambleText: React.FC<ScrambleTextProps> = ({
     <span
       onMouseEnter={startScramble}
       onMouseLeave={stopScramble}
-      onClick={() => onClick?.()}
-      onTouchEnd={() => onClick?.()}
+      onPointerUp={() => onClick?.()}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

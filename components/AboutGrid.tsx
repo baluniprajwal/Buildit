@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import type { View } from '../types/view';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Globe, Users, Trophy, Zap, ArrowRight } from 'lucide-react';
@@ -7,7 +6,7 @@ import { Globe, Users, Trophy, Zap, ArrowRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 interface AboutGridProps {
-    onNavigate: (view: View) => void;
+    onNavigate: (view: string) => void;
 }
 
 const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
