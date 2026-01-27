@@ -207,9 +207,6 @@ const AboutPage: React.FC = () => {
 
             <div className="relative z-20 text-center px-4">
                 <div className="flex justify-center gap-2 mb-6 hero-sub">
-                    <span className="px-3 py-1 border border-white/20 text-white/60 font-mono text-xs uppercase tracking-widest bg-black/50 backdrop-blur-md">
-                        Est. 2019
-                    </span>
                 </div>
                 <h1 className="text-[10vw] md:text-[12vw] font-black leading-[0.85] tracking-tighter uppercase mix-blend-screen">
                     <div className="overflow-hidden flex justify-center">
