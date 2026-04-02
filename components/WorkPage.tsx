@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, ArrowDown, FolderOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,10 +78,11 @@ const categories = [
     projects: [
       {
         id: 7,
-        client: "LUMEN OPTICS",
-        service: "Brand Film",
-        img: "https://picsum.photos/1600/900?random=16",
-        link: "https://vimeo.com"
+        client: "Content Archive",
+        service: "Content Creation / Broadcast-Inspired Showcase",
+        img: "/work/millionwires.png",
+        link: "/content-archive",
+        internal: true
       },
       {
         id: 8,
@@ -102,6 +104,7 @@ const categories = [
 
 const WorkPage: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -220,13 +223,28 @@ const WorkPage: React.FC = () => {
 
               <div className="w-full md:w-2/3 flex flex-col gap-24 pb-24">
                 {cat.projects.map((project) => (
-                  <a
+                  <div
                     key={project.id}
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="project-card group block cursor-pointer relative"
                     aria-label={`View ${project.client} project`}
+                    role="link"
+                    tabIndex={0}
+                    onClick={() => {
+                      if ((project as { internal?: boolean }).internal) {
+                        navigate(project.link);
+                        return;
+                      }
+                      window.open(project.link, '_blank', 'noopener,noreferrer');
+                    }}
+                    onKeyDown={(event) => {
+                      if (event.key !== 'Enter' && event.key !== ' ') return;
+                      event.preventDefault();
+                      if ((project as { internal?: boolean }).internal) {
+                        navigate(project.link);
+                        return;
+                      }
+                      window.open(project.link, '_blank', 'noopener,noreferrer');
+                    }}
                   >
                     <div className="w-full aspect-[16/9] overflow-hidden bg-[#1a1a1a] relative mb-6">
                       <img
@@ -249,7 +267,7 @@ const WorkPage: React.FC = () => {
                         <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform" />
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </div>
