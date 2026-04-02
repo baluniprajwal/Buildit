@@ -16,7 +16,7 @@ import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
 import Services from './components/Services';
 import ServicesPage from './components/ServicesPage';
-import SignalPage from './components/SignalPage';
+import ContentPage from './components/ContentPage';
 import StrategicPillars from './components/StrategicPillars';
 import VideoManifesto from './components/VideoManifesto';
 import WorkPage from './components/WorkPage';
@@ -43,7 +43,7 @@ const HomePage: React.FC = () => (
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const isSignalPage = location.pathname === '/content-archive' || location.pathname === '/signal';
+  const isContentPage = location.pathname === '/content-archive' || location.pathname === '/content';
 
   useEffect(() => {
     if (loading) {
@@ -102,21 +102,21 @@ const App: React.FC = () => {
     <main className="bg-[#0a0a0a] text-[#E8E8E8] w-full min-h-screen selection:bg-[#ff4d00] selection:text-white relative">
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 
-      {!isSignalPage && <CustomCursor />}
+      {!isContentPage && <CustomCursor />}
       <Navbar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<><ServicesPage /><Footer /></>} />
         <Route path="/work" element={<><WorkPage /><Footer /></>} />
-        <Route path="/content-archive" element={<><SignalPage /><Footer showCta={false} /></>} />
-        <Route path="/signal" element={<Navigate to="/content-archive" replace />} />
+        <Route path="/content-archive" element={<><ContentPage /><Footer showCta={false} /></>} />
+        <Route path="/content" element={<Navigate to="/content-archive" replace />} />
         <Route path="/about" element={<><AboutPage /><Footer /></>} />
         <Route path="/contact" element={<><Contact /><Footer showCta={false} /></>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
-      {!isSignalPage && (
+      {!isContentPage && (
         <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999]"
           style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}>
         </div>
