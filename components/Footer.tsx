@@ -1,16 +1,25 @@
 import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { Instagram, Linkedin, ArrowUpRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface FooterProps {
-  onNavigate: (view: string) => void;
   showCta?: boolean;
 }
 
-const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
+const Footer: React.FC<FooterProps> = ({ showCta = true }) => {
   const ctaSectionRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const ctaTextRef = useRef<HTMLHeadingElement>(null);
+  const navigate = useNavigate();
+
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'Services', path: '/services' },
+    { label: 'Work', path: '/work' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Contact', path: '/contact' },
+  ];
 
   useEffect(() => {
 
@@ -79,7 +88,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                     ref={ctaTextRef}
                     className="text-[12vw] leading-[0.8] font-black uppercase tracking-tighter mb-8 hover:text-[#ff4d00] transition-colors cursor-pointer select-none will-change-transform"
                     onClick={() => {
-                        onNavigate('contact');
+                        navigate('/contact');
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }}
                 >
@@ -87,7 +96,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                 </h2>
                 <button
                     onClick={() => {
-                        onNavigate('contact');
+                        navigate('/contact');
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }}
                     className="group flex items-center gap-4 text-xl md:text-2xl font-mono uppercase tracking-widest border border-white/20 px-10 py-5 rounded-full hover:bg-[#ff4d00] hover:text-white hover:border-[#ff4d00] transition-all duration-300"
@@ -111,7 +120,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
                  <div
                     className="text-2xl font-bold tracking-tighter uppercase cursor-pointer mb-6 inline-block hover:text-[#ff4d00] transition-colors"
                     onClick={() => {
-                        onNavigate('home');
+                        navigate('/');
                         window.scrollTo({ top: 0, behavior: 'instant' });
                     }}
                   >
@@ -126,21 +135,16 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, showCta = true }) => {
             <div>
                 <h4 className="font-mono text-xs text-[#ff4d00] uppercase tracking-widest mb-6">Sitemap</h4>
                 <ul className="space-y-4">
-                    {['Home', 'Services', 'Work', 'About Us', 'Contact'].map((item) => (
-                        <li key={item}>
+                    {navItems.map((item) => (
+                        <li key={item.path}>
                             <button
                                 onClick={() => {
-                                    let view = 'home';
-                                    if (item === 'Services') view = 'services';
-                                    if (item === 'Work') view = 'work';
-                                    if (item === 'About Us') view = 'about';
-                                    if (item === 'Contact') view = 'contact';
-                                    onNavigate(view);
+                                    navigate(item.path);
                                     window.scrollTo({ top: 0, behavior: 'instant' });
                                 }}
                                 className="text-gray-400 hover:text-white uppercase font-bold text-sm tracking-wider transition-colors"
                             >
-                                {item}
+                                {item.label}
                             </button>
                         </li>
                     ))}

@@ -1,16 +1,14 @@
 import React, { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { Menu, X, Instagram, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import ScrambleText from "./ScrambleText";
 
-interface NavbarProps {
-  onNavigate: (view: string) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
+const Navbar: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   /* NAVBAR INTRO ANIMATION (STRICT MODE SAFE) */
   useLayoutEffect(() => {
@@ -51,13 +49,18 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
     });
   }, [isOpen]);
 
-  const handleNavClick = (view: string) => {
-    onNavigate(view);
+  const handleNavClick = (path: string) => {
+    navigate(path);
     window.scrollTo({ top: 0, behavior: "instant" });
     setIsOpen(false);
   };
 
-  const navItems = ["services", "work", "about", "contact"];
+  const navItems = [
+    { label: "services", path: "/services" },
+    { label: "work", path: "/work" },
+    { label: "about", path: "/about" },
+    { label: "contact", path: "/contact" },
+  ];
 
   return (
     <>
@@ -73,7 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         <div className="flex items-center gap-1">
           <ScrambleText
             text="buildit"
-            onClick={() => handleNavClick("home")}
+            onClick={() => handleNavClick("/")}
             className="text-2xl font-bold uppercase tracking-tighter"
           />
           <span className="text-[#ff4d00] text-2xl font-bold">.</span>
@@ -82,10 +85,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
         {/* DESKTOP NAV */}
         <ul className="hidden md:flex space-x-12 text-sm font-bold uppercase tracking-widest">
           {navItems.map((item) => (
-            <li key={item}>
+            <li key={item.path}>
               <ScrambleText
-                text={item}
-                onClick={() => handleNavClick(item)}
+                text={item.label}
+                onClick={() => handleNavClick(item.path)}
                 className="hover:text-[#ff4d00] transition-colors duration-300"
               />
             </li>
@@ -107,9 +110,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
       >
         {navItems.map((item) => (
           <ScrambleText
-            key={item}
-            text={item}
-            onClick={() => handleNavClick(item)}
+            key={item.path}
+            text={item.label}
+            onClick={() => handleNavClick(item.path)}
             className="text-4xl font-black uppercase hover:text-[#ff4d00]"
           />
         ))}

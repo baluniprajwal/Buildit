@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Share2, Monitor, Camera, ArrowUpRight, Zap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,16 +42,13 @@ const pillars = [
   }
 ];
 
-type StrategicPillarsProps = {
-  onNavigate?: (view: string) => void;
-};
-
-const StrategicPillars: React.FC<StrategicPillarsProps> = ({ onNavigate }) => {
+const StrategicPillars: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   // Default to first item active on mount for better UX
   const [activeId, setActiveId] = useState<string | null>("smm"); 
   const isMobileRef = useRef(false);
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     isMobileRef.current = window.innerWidth < 768;
@@ -74,7 +72,7 @@ const StrategicPillars: React.FC<StrategicPillarsProps> = ({ onNavigate }) => {
   const handleMobileClick = (_id: string) => {
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
@@ -191,7 +189,7 @@ const StrategicPillars: React.FC<StrategicPillarsProps> = ({ onNavigate }) => {
                                 
                                 <button
                                     type="button"
-                                    onClick={() => onNavigate?.('services')}
+                                    onClick={() => navigate('/services')}
                                     className="px-5 py-2 md:px-6 md:py-3 bg-[#ff4d00] text-black text-sm md:text-base font-bold uppercase tracking-widest hover:bg-white transition-colors"
                                 >
                                     Learn More

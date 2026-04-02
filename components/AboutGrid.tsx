@@ -1,19 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Globe, Users, Trophy, Zap, ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface AboutGridProps {
-    onNavigate: (view: string) => void;
-}
-
-const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
+const AboutGrid: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current) return;
 
     const ctx = gsap.context(() => {
@@ -78,7 +76,7 @@ const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
                     The <span className="text-[#ff4d00]">Agency</span> <br/> Ecosystem
                 </h2>
                 <button
-                    onClick={() => onNavigate('about')}
+                    onClick={() => navigate('/about')}
                     className="group flex items-center gap-2 text-sm font-mono uppercase tracking-widest text-gray-500 hover:text-[#ff4d00] transition-colors mt-8 md:mt-0"
                 >
                     Full Briefing
@@ -137,7 +135,7 @@ const AboutGrid: React.FC<AboutGridProps> = ({ onNavigate }) => {
                 </div>
 
                 {}
-                <div onClick={() => onNavigate('about')} className="bento-item bento-parallax-img bg-[#111] border border-[#222] relative overflow-hidden group min-h-[250px] will-change-transform cursor-pointer">
+                <div onClick={() => navigate('/about')} className="bento-item bento-parallax-img bg-[#111] border border-[#222] relative overflow-hidden group min-h-[250px] will-change-transform cursor-pointer">
                      <img
                         src="https://picsum.photos/600/600?random=99"
                         alt="Office"

@@ -1,33 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 
 const logosTop = ["STRATEGY", "DESIGN", "SOCIAL", "CONTENT", "WEB", "BRANDING", "MEDIA"];
 const logosBottom = ["GROWTH", "SCALE", "IMPACT", "SPEED", "CULTURE", "VISION", "FUTURE"];
+const repeatedLogosTop = [...logosTop, ...logosTop, ...logosTop, ...logosTop];
+const repeatedLogosBottom = [...logosBottom, ...logosBottom, ...logosBottom, ...logosBottom];
 
 const ClientLogos: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const row1Ref = useRef<HTMLDivElement>(null);
   const row2Ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current || !row1Ref.current || !row2Ref.current) return;
 
     const ctx = gsap.context(() => {
-
-        const content1 = row1Ref.current?.innerHTML || "";
-        if (row1Ref.current) row1Ref.current.innerHTML = content1 + content1 + content1 + content1;
-
         gsap.to(row1Ref.current, {
             xPercent: -25,
             ease: "none",
             duration: 25,
             repeat: -1
         });
-
-
-        const content2 = row2Ref.current?.innerHTML || "";
-        if (row2Ref.current) row2Ref.current.innerHTML = content2 + content2 + content2 + content2;
 
         gsap.fromTo(row2Ref.current, { xPercent: -25 }, {
             xPercent: 0,
@@ -50,8 +44,8 @@ const ClientLogos: React.FC = () => {
         {}
         <div className="w-full flex overflow-hidden mb-4 md:mb-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
             <div ref={row1Ref} className="flex whitespace-nowrap will-change-transform">
-                {logosTop.map((logo, i) => (
-                    <div key={i} className="mx-8 md:mx-16 flex items-center">
+                {repeatedLogosTop.map((logo, i) => (
+                    <div key={`top-${i}-${logo}`} className="mx-8 md:mx-16 flex items-center">
                         <span className="text-4xl md:text-6xl font-black text-black uppercase tracking-tighter">{logo}</span>
                     </div>
                 ))}
@@ -61,8 +55,8 @@ const ClientLogos: React.FC = () => {
         {}
         <div className="w-full flex overflow-hidden opacity-40 hover:opacity-100 transition-opacity duration-500">
             <div ref={row2Ref} className="flex whitespace-nowrap will-change-transform">
-                {logosBottom.map((logo, i) => (
-                    <div key={i} className="mx-8 md:mx-16 flex items-center">
+                {repeatedLogosBottom.map((logo, i) => (
+                    <div key={`bottom-${i}-${logo}`} className="mx-8 md:mx-16 flex items-center">
                         <span className="text-4xl md:text-6xl font-black text-transparent stroke-black uppercase tracking-tighter" style={{ WebkitTextStroke: '1px black' }}>{logo}</span>
                     </div>
                 ))}

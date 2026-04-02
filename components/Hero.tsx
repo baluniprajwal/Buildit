@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDownRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,6 +10,7 @@ const Hero: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const maskRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
 
   const HeroContent = ({ isOverlay }: { isOverlay: boolean }) => (
@@ -43,6 +45,7 @@ const Hero: React.FC = () => {
           {}
           <button
             type="button"
+            onClick={() => navigate('/contact')}
             className={`group relative px-8 py-4 bg-transparent border overflow-hidden transition-colors ${isOverlay ? 'border-[#E8E8E8] hover:border-black' : 'border-black hover:border-[#ff4d00]'}`}
           >
             <span className={`relative z-10 font-bold uppercase tracking-wider transition-colors duration-300 ${isOverlay ? 'text-[#E8E8E8] group-hover:text-[#E8E8E8]' : 'text-black group-hover:text-[#E8E8E8]'}`}>
@@ -55,7 +58,7 @@ const Hero: React.FC = () => {
     </div>
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!containerRef.current || !maskRef.current) return;
 
     const ctx = gsap.context(() => {

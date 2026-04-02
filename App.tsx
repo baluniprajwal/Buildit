@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import React, { useEffect, useLayoutEffect, useState } from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import AboutGrid from './components/AboutGrid';
 import AboutPage from './components/AboutPage';
 import ClientLogos from './components/ClientLogos';
@@ -23,10 +24,24 @@ import WorkScroll from './components/WorkScroll';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const HomePage: React.FC = () => (
+  <>
+    <Hero />
+    <Services />
+    <ClientLogos />
+    <VideoManifesto />
+    <Marquee />
+    <AboutGrid />
+    <DeviceShowcase />
+    <WorkScroll />
+    <StrategicPillars />
+    <Footer />
+  </>
+);
+
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState('home');
-
+  const location = useLocation();
 
   useEffect(() => {
     if (loading) {
@@ -70,70 +85,33 @@ const App: React.FC = () => {
 
 
   useLayoutEffect(() => {
-
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
 
-
     const timer = setTimeout(() => {
-        ScrollTrigger.refresh();
+      ScrollTrigger.refresh();
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [view]);
+  }, [location.pathname]);
 
   return (
     <main className="bg-[#0a0a0a] text-[#E8E8E8] w-full min-h-screen selection:bg-[#ff4d00] selection:text-white relative">
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 
       <CustomCursor />
-      <Navbar onNavigate={setView} />
+      <Navbar />
 
-      {view === 'home' && (
-        <div key="home-view">
-          <Hero onNavigate={setView} />
-          <Services />
-          <ClientLogos />
-          <VideoManifesto />
-          <Marquee />
-          <AboutGrid onNavigate={setView} />
-          <DeviceShowcase />
-          <WorkScroll />
-          <StrategicPillars onNavigate={setView} />
-          <Footer onNavigate={setView} />
-        </div>
-      )}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<><ServicesPage /><Footer /></>} />
+        <Route path="/work" element={<><WorkPage /><Footer /></>} />
+        <Route path="/about" element={<><AboutPage /><Footer /></>} />
+        <Route path="/contact" element={<><Contact /><Footer showCta={false} /></>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
 
-      {view === 'services' && (
-        <div key="services-view">
-          <ServicesPage onNavigate={setView} />
-          <Footer onNavigate={setView} />
-        </div>
-      )}
-
-      {view === 'work' && (
-        <div key="work-view">
-          <WorkPage />
-          <Footer onNavigate={setView} />
-        </div>
-      )}
-
-      {view === 'about' && (
-        <div key="about-view">
-          <AboutPage />
-          <Footer onNavigate={setView} />
-        </div>
-      )}
-
-      {view === 'contact' && (
-        <div key="contact-view">
-          <Contact />
-          <Footer onNavigate={setView} showCta={false} />
-        </div>
-      )}
-
-      {}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-[9999]"
         style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }}>
       </div>

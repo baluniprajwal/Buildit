@@ -2,12 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Monitor, Share2, Camera, ArrowUpRight, ArrowDown } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface ServicesPageProps {
-  onNavigate: (view: string) => void;
-}
 
 const serviceSections = [
   {
@@ -46,9 +43,10 @@ const serviceSections = [
 
 ];
 
-const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
+const ServicesPage: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     let ctx: gsap.Context;
@@ -345,7 +343,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         <div className="animate-detail">
                             <button
                               onClick={() => {
-                                onNavigate('contact');
+                                navigate('/contact');
                                 window.scrollTo({ top: 0, behavior: 'instant' });
                               }}
                               className={`group w-max flex items-center gap-4 text-sm md:text-base font-bold uppercase tracking-widest hover:opacity-70 transition-opacity ${section.accent}`}
